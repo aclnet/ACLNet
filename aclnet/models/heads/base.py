@@ -37,6 +37,12 @@ class BaseHead(nn.Module, metaclass=ABCMeta):
         elif data_cfg == 'k400':
             n_channel = 400
             memory = 2048
+        elif data_cfg == 'finegym':
+            n_channel = 400
+            memory = 1024
+        elif data_cfg == 'pku_mmd':
+            n_channel = 625
+            memory = 512
         
         self.inter_loss = Inter_Affinitive_Contrastive_Loss(num_classes, n_channel)
         self.intra_loss = Intra_Affinitive_Contrastive_Loss(num_classes, memory, n_channel)
